@@ -6,6 +6,7 @@ router = APIRouter(
     tags=["users"]
 )
 
+
 @router.post("/create-user")
 async def clerk_webhook(webhook_data:dict):
     try:
@@ -29,3 +30,5 @@ async def clerk_webhook(webhook_data:dict):
 
     except Exception as e:
         return HTTPException(status_code=500, detail=f"Webhook processing failed: {str(e)}")
+    
+
