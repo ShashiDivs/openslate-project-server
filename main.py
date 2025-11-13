@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-from routers import users, projects
+from routers import users, projects, files, chats
 import os
 
 app = FastAPI(
@@ -20,6 +20,8 @@ app.add_middleware(
 
 app.include_router(users.router)
 app.include_router(projects.router)
+app.include_router(files.router)
+app.include_router(chats.router)
 
 
 @app.get("/")
